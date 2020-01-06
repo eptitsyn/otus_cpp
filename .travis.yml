@@ -4,7 +4,8 @@ before_script:
 - echo "deb http://archive.ubuntu.com/ubuntu xenial main universe" | sudo tee -a /etc/apt/sources.list
 - sudo apt-get update -qq
 script:
-- cmake hw1
-- cmake --build hw1
-- cmake --build hw1 --target test
-- cmake --build hw1 --target package
+- cd hw1
+- cmake .
+- cmake --build .
+- cmake --build . --target test
+- cmake --build . --target package
