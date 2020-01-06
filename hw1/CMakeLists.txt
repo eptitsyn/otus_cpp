@@ -78,6 +78,6 @@ include(CPack)
 
 enable_testing()
 
-add_test(test_version bin/test_version)
+add_test(test_version test_version)
 
 
