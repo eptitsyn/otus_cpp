@@ -21,9 +21,11 @@ set_target_properties(helloworld_cli helloworld test_version PROPERTIES
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 )
-target_include_directories(helloworld
-    PRIVATE "${CMAKE_BINARY_DIR}"
+
+target_include_directories(hw1
+    PRIVATE "${CMAKE_BINARY_DIR}/bin"
 )
+
 set_target_properties(test_version PROPERTIES
     COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
     INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
