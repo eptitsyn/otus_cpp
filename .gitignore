@@ -1,3 +1,8 @@
 hw1/source
 CMakeCache.txt
 hw1/CMakeFiles
+cmake_install.cmake
+*.cmake
+Makefile
+hw1/bin
+hw1/lib
