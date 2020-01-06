@@ -11,19 +11,20 @@ find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 configure_file(version.h.in version.h)
 
 add_executable(helloworld_cli hw1.cpp)
-add_library(helloworld lib.cpp)
+add_library(helloworld_lib lib.cpp)
 add_executable(test_version test_version.cpp)
 
-set_target_properties(helloworld_cli helloworld test_version PROPERTIES
+set_target_properties(helloworld_cli helloworld_lib test_version PROPERTIES
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
-    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 )
 
-target_include_directories(hw1
-    PRIVATE "${CMAKE_BINARY_DIR}/bin"
+target_include_directories(helloworld_cli
+    PRIVATE "${CMAKE_BINARY_DIR}"
+)
+
+target_include_directories(helloworld_lib
+    PRIVATE "${CMAKE_BINARY_DIR}"
 )
 
 set_target_properties(test_version PROPERTIES
@@ -32,18 +33,18 @@ set_target_properties(test_version PROPERTIES
 )
 
 target_link_libraries(helloworld_cli PRIVATE
-    helloworld
+    helloworld_lib
 )
 target_link_libraries(test_version
     ${Boost_LIBRARIES}
-    helloworld
+    helloworld_lib
 )
 
 if (MSVC)
     target_compile_options(helloworld_cli PRIVATE
         /W4
     )
-    target_compile_options(helloworld PRIVATE
+    target_compile_options(helloworld_lib PRIVATE
         /W4
     )
     target_compile_options(test_version PRIVATE
@@ -53,7 +54,7 @@ else ()
     target_compile_options(helloworld_cli PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
-    target_compile_options(helloworld PRIVATE
+    target_compile_options(helloworld_lib PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
     target_compile_options(test_version PRIVATE
