@@ -14,17 +14,22 @@ add_executable(helloworld_cli hw1.cpp)
 add_library(helloworld_lib lib.cpp)
 add_executable(test_version test_version.cpp)
 
+
 set_target_properties(helloworld_cli helloworld_lib test_version PROPERTIES
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
+    ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/lib"
+    LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/lib"
+    RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin"
+
 )
 
 target_include_directories(helloworld_cli
-    PRIVATE "${CMAKE_BINARY_DIR}"
+    PRIVATE "${PROJECT_SOURCE_DIR}/bin"
 )
 
 target_include_directories(helloworld_lib
-    PRIVATE "${CMAKE_BINARY_DIR}"
+    PRIVATE "${PROJECT_SOURCE_DIR}/lib"
 )
 
 set_target_properties(test_version PROPERTIES
@@ -79,5 +84,11 @@ include(CPack)
 enable_testing()
 
 add_test(test_version test_version)
+
+add_library(gtest_version gtest_version.cpp)
+target_link_libraries(gtest_version gtest_main)
+set_property(TARGET gtest_version PROPERTY CXX_STANDARD 17)
+
+
 
 

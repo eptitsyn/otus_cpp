@@ -6,3 +6,7 @@ cmake_install.cmake
 Makefile
 hw1/bin
 hw1/lib
+CMakeFiles
+googletest-build
+googletest-download
+*.a
