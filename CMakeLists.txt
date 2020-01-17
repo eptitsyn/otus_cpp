@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.2)
 project(otus_cpp)
 
 add_subdirectory(hw1)
+add_subdirectory(hw2)
 
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)

@@ -8,24 +8,30 @@ endif()
 
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
-configure_file(version.h.in version.h)
+configure_file(lib/version.h.in lib/version.h)
 
-add_executable(helloworld_cli hw1.cpp)
-add_library(helloworld_lib lib.cpp)
-add_executable(test_version test_version.cpp)
+add_executable(helloworld_cli src/hw1.cpp)
+add_library(helloworld_lib lib/lib.cpp)
+add_executable(test_version tests/test_version.cpp)
 
+include_directories(${PROJECT_SOURCE_DIR}/lib)
 
 set_target_properties(helloworld_cli helloworld_lib test_version PROPERTIES
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
-    ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/lib"
-    LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/lib"
+    ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin"
+    LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin"
     RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin"
 
 )
 
 target_include_directories(helloworld_cli
-    PRIVATE "${PROJECT_SOURCE_DIR}/bin"
+    PRIVATE "${PROJECT_SOURCE_DIR}/lib"
+)
+
+target_include_directories(test_version
+    PRIVATE "${PROJECT_SOURCE_DIR}/lib"
+    ${Boost_INCLUDE_DIR}
 )
 
 target_include_directories(helloworld_lib
@@ -34,12 +40,12 @@ target_include_directories(helloworld_lib
 
 set_target_properties(test_version PROPERTIES
     COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
-    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
 
-target_link_libraries(helloworld_cli PRIVATE
+target_link_libraries(helloworld_cli PUBLIC
     helloworld_lib
 )
+
 target_link_libraries(test_version
     ${Boost_LIBRARIES}
     helloworld_lib
@@ -67,8 +73,6 @@ else ()
     )
 endif()
 
-
-
 install(TARGETS helloworld_cli RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
@@ -83,9 +87,9 @@ include(CPack)
 
 enable_testing()
 
-add_test(test_version test_version)
+add_test(test_version bin/test_version)
 
-add_library(gtest_version gtest_version.cpp)
+add_library(gtest_version tests/gtest_version.cpp)
 target_link_libraries(gtest_version gtest_main)
 set_property(TARGET gtest_version PROPERTY CXX_STANDARD 17)
 
