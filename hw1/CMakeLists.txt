@@ -93,7 +93,7 @@ add_executable(gtest_version tests/gtest_version.cpp)
 #add_library(gtest_version tests/gtest_version.cpp)
 target_link_libraries(gtest_version gtest_main helloworld_lib)
 set_property(TARGET gtest_version PROPERTY CXX_STANDARD 17)
-gtest_add_tests(gtest_version)
+add_test(gtest_version gtest_version)
 
 
 
