@@ -9,15 +9,20 @@ endif()
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 add_executable(ip_filter ip_filter.cpp)
+add_library(ip_filter_lib ip_filter_lib.cpp)
 
+include_directories(${PROJECT_SOURCE_DIR})
 
-set_target_properties(ip_filter PROPERTIES
-    CXX_STANDARD 14
+set_target_properties(ip_filter ip_filter_lib PROPERTIES
+    CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
-    ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/lib"
-    LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/lib"
-    RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin"
+    ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}"
+    LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}"
+    RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}"
+)
 
+target_link_libraries(ip_filter PUBLIC
+    ip_filter_lib
 )
 
 target_include_directories(ip_filter
@@ -64,6 +69,9 @@ include(CPack)
 enable_testing()
 
 
-
+add_executable(gtest_unittest tests/gtest_unittest.cpp)
+target_link_libraries(gtest_unittest gtest_main ip_filter_lib)
+set_property(TARGET gtest_unittest PROPERTY CXX_STANDARD 17)
+add_test(gtest_unittest gtest_unittest)
 
 
