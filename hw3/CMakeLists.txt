@@ -6,7 +6,7 @@ else ()
     project(hw3 VERSION 0.0.1)
 endif()
 
-add_executable(allocator src/main.cpp src/myvector.hpp src/myallocator.hpp)
+add_executable(allocator src/main.cpp)
 
 target_include_directories(allocator PRIVATE ${PROJECT_SOURCE_DIR}/src)
 
@@ -42,7 +42,7 @@ set(CPACK_PACKAGE_CONTACT example@example.com)
 
 include(CPack)
 
-enable_testing()
+#enable_testing()
 
 
 #add_executable(gtest_unittest tests/gtest_unittest.cpp)
