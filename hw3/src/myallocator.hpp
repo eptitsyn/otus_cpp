@@ -50,7 +50,7 @@ public:
         //look for place in existing chunks
         for(Chunk& i : _pool){
             if((unsigned)(i._data+chunkSize-i._lastFree) >= n){
-                std::cout << "'atc'" << std::flush;
+                //std::cout << "'atc'" << std::flush;
                 return addtoChunk(i, n);
             }
         }
@@ -90,9 +90,9 @@ public:
         p->~T();
     }
 
-    void reserve(std::size_t n){
-    	std::cout << "reserve " << n << std::endl;
-    }
+    // void reserve(std::size_t n){
+    // 	std::cout << "reserve " << n << std::endl;
+    // }
 private:
 	std::list<Chunk> _pool;
 };	
