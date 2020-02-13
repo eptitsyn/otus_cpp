@@ -87,7 +87,7 @@ include(CPack)
 
 enable_testing()
 
-add_test(test_version bin/test_version)
+#add_test(test_version bin/test_version)
 
 add_executable(gtest_version tests/gtest_version.cpp)
 #add_library(gtest_version tests/gtest_version.cpp)

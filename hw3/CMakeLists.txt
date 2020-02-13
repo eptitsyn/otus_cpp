@@ -44,12 +44,9 @@ set(CPACK_PACKAGE_CONTACT example@example.com)
 
 include(CPack)
 
-#enable_testing()
+enable_testing()
 
-
-#add_executable(gtest_unittest tests/gtest_unittest.cpp)
-#target_link_libraries(gtest_unittest gtest_main ip_filter_lib)
-#set_property(TARGET gtest_unittest PROPERTY CXX_STANDARD 17)
-#add_test(gtest_unittest gtest_unittest)
-
+add_executable(gtest_hw3 tests/main.cpp)
+target_link_libraries(gtest_hw3 gtest_main)
+set_property(TARGET gtest_hw3 PROPERTY CXX_STANDARD 17)
 

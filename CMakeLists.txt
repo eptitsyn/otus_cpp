@@ -8,3 +8,8 @@ add_subdirectory(hw3)
 add_subdirectory(gtest)
 
 
+enable_testing()
+
+if(BUILD_TESTING)
+    add_subdirectory(tests)
+endif()
