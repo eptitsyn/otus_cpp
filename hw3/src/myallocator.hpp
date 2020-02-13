@@ -41,7 +41,7 @@ public:
 
     template <class Tp, std::size_t Cs>
     myallocator(const myallocator<Tp, Cs>&){
-    };
+    }
 
     T* allocate(std::size_t n){
         if (n > chunkSize) 
@@ -84,7 +84,7 @@ public:
     template<typename U, typename ...Args>
     void construct(U *p, Args &&...args) {
         new(p) U(std::forward<Args>(args)...);
-    };
+    }
 
     void destroy(T *p) {
         p->~T();

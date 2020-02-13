@@ -6,7 +6,7 @@ public:
 
 	template <class Tp, class Al = std::allocator<T>>
     myvector(const myvector<Tp, Al>&){
-    };
+    }
 
     void push_back(T item){
 		if(_size == _capacity){

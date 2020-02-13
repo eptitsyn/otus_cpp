@@ -25,7 +25,7 @@ int main(){
 		for(int i = 0; i < 10; ++i){
 			mymap[i]= factorial(i);
 		}
-		mymap.get_allocator().reserve(10);
+		//mymap.get_allocator().reserve(10);
 		for(auto& [key, value]: mymap){
 			std::cout << key << " : " << value << std::endl;
 		}
