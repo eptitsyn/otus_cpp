@@ -18,15 +18,6 @@ set_target_properties(allocator PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}"
 )
 
-if (MSVC)
-    target_compile_options(allocator PRIVATE
-        /W4
-    )
-else ()
-    target_compile_options(allocator PRIVATE
-        -Wall -Wextra -pedantic -Werror
-    )
-endif()
 
 
 
