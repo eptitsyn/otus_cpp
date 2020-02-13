@@ -46,11 +46,10 @@ public:
     T* allocate(std::size_t n){
         if (n > chunkSize) 
             throw std::bad_alloc();
-        T* result;
 
         //look for place in existing chunks
         for(Chunk& i : _pool){
-            if(i._data+chunkSize-i._lastFree >= n){
+            if((unsigned)(i._data+chunkSize-i._lastFree) >= n){
                 std::cout << "'atc'" << std::flush;
                 return addtoChunk(i, n);
             }
