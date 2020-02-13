@@ -1,4 +1,4 @@
-#include "ip_filter_lib.cpp"
+#include "ip_filter_lib.h"
 
 #include <vector>
 #include <string>

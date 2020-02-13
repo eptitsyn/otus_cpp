@@ -14,6 +14,7 @@ add_library(ip_filter_lib ip_filter_lib.cpp)
 include_directories(${PROJECT_SOURCE_DIR})
 
 set_target_properties(ip_filter ip_filter_lib PROPERTIES
+    LINKER_LANGUAGE CXX
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
     ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}"
@@ -21,7 +22,7 @@ set_target_properties(ip_filter ip_filter_lib PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}"
 )
 
-target_link_libraries(ip_filter PUBLIC
+target_link_libraries(ip_filter PRIVATE
     ip_filter_lib
 )
 
@@ -31,25 +32,25 @@ target_include_directories(ip_filter
 
 
 if (MSVC)
-    target_compile_options(helloworld_cli PRIVATE
+    target_compile_options(ip_filter PRIVATE
         /W4
     )
-    target_compile_options(helloworld_lib PRIVATE
+    target_compile_options(ip_filter_lib PRIVATE
         /W4
     )
-    target_compile_options(test_version PRIVATE
-        /W4
-    )
+#    target_compile_options(test_version PRIVATE
+#        /W4
+#    )
 else ()
-    target_compile_options(helloworld_cli PRIVATE
+    target_compile_options(ip_filter PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
-    target_compile_options(helloworld_lib PRIVATE
+    target_compile_options(ip_filter_lib PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
-    target_compile_options(test_version PRIVATE
-        -Wall -Wextra -pedantic -Werror
-    )
+#    target_compile_options(test_version PRIVATE
+#        -Wall -Wextra -pedantic -Werror
+#    )
 endif()
 
 
