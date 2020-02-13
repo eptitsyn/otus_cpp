@@ -10,6 +10,8 @@ add_executable(allocator src/main.cpp)
 
 target_include_directories(allocator PRIVATE ${PROJECT_SOURCE_DIR}/src)
 
+set_property(TARGET allocator PROPERTY CXX_STANDARD 17)
+
 set_target_properties(allocator PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
@@ -18,6 +20,15 @@ set_target_properties(allocator PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}"
 )
 
+if (MSVC)
+    target_compile_options(allocator PRIVATE
+        /W4
+    )
+else ()
+    target_compile_options(allocator PRIVATE
+        -Wall -Wextra -pedantic -Werror
+    )
+endif()
 
 
 
