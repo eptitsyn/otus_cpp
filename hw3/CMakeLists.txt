@@ -6,8 +6,6 @@ else ()
     project(hw3 VERSION 0.0.1)
 endif()
 
-find_package(Boost COMPONENTS unit_test_framework REQUIRED)
-
 add_executable(allocator src/main.cpp src/myvector.hpp src/myallocator.hpp)
 
 target_include_directories(allocator PRIVATE ${PROJECT_SOURCE_DIR}/src)
@@ -21,23 +19,11 @@ set_target_properties(allocator PROPERTIES
 )
 
 if (MSVC)
-    target_compile_options(helloworld_cli PRIVATE
-        /W4
-    )
-    target_compile_options(helloworld_lib PRIVATE
-        /W4
-    )
-    target_compile_options(test_version PRIVATE
+    target_compile_options(allocator PRIVATE
         /W4
     )
 else ()
-    target_compile_options(helloworld_cli PRIVATE
-        -Wall -Wextra -pedantic -Werror
-    )
-    target_compile_options(helloworld_lib PRIVATE
-        -Wall -Wextra -pedantic -Werror
-    )
-    target_compile_options(test_version PRIVATE
+    target_compile_options(allocator PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
 endif()
