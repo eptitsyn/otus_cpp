@@ -25,28 +25,30 @@ int main(){
 		for(int i = 0; i < 10; ++i){
 			mymap[i]= factorial(i);
 		}
-		//mymap.get_allocator().reserve(10);
+
 		for(auto& [key, value] : mymap){
 			std::cout << key << " : " << value << std::endl;
 		}
 	}
 	std::cout << "my vector" << std::endl;
 
-	myvector<int> mvec;
-	for(int i = 0; i < 10; ++i){
-		mvec.push_back(i);
-	}
+	{	
+		myvector<int> mvec;
+		for(int i = 0; i < 10; ++i){
+			mvec.push_back(i);
+		}
 
-	for(auto &i : mvec){
-		std::cout << i << std::endl;
-	}
-
-	mvec = myvector<int, myallocator<int>>();
-	for(int i = 0; i < 10; ++i){
-		mvec.push_back(i);
-	}
-	for(auto &i : mvec){
-		std::cout << i << std::endl;
+		for(auto &i : mvec){
+			std::cout << i << std::endl;
+		}
+	
+		mvec = myvector<int, myallocator<int,10>>();
+		for(int i = 0; i < 10; ++i){
+			mvec.push_back(i);
+		}
+		for(auto &i : mvec){
+			std::cout << i << std::endl;
+		}
 	}
 
 	return 0;
