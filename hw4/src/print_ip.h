@@ -41,7 +41,7 @@ template<typename T,
         >
 void print_ip(T&& value) {
     std::cout << value << std::endl;
-};
+}
 
 /**
  * PrintIp function
@@ -57,7 +57,7 @@ void print_ip(T&& value) {
         std::make_reverse_iterator(static_cast<const uint8_t*>(static_cast<const void*>(&value))),  
         make_myostream_joiner(std::cout, "."));
     std::cout << std::endl;
-};
+}
 
 /**
  * PrintIp function

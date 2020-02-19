@@ -9,7 +9,7 @@ script:
 - cmake --build .
 - cmake --build . --target test
 - cmake --build . --target package
-  cmake --build . --target docs
+- cmake --build . --target docs
 deploy:
   provider: script
   skip_cleanup: true
