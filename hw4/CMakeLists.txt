@@ -6,6 +6,8 @@ else ()
     project(hw4 VERSION 0.0.1)
 endif()
 
+add_subdirectory(docs)
+
 add_executable(print_ip src/print_ip.cpp)
 
 target_include_directories(print_ip PRIVATE ${PROJECT_SOURCE_DIR}/src)

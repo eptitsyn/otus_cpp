@@ -1,7 +1,7 @@
 dist: bionic
 language: cpp
 before_script:
-- sudo apt-get install libboost-test-dev -y
+- sudo apt-get install libboost-test-dev doxygen -y
 - echo "deb http://archive.ubuntu.com/ubuntu bionic main universe" | sudo tee -a /etc/apt/sources.list
 - sudo apt-get update -qq
 script:
@@ -9,8 +9,17 @@ script:
 - cmake --build .
 - cmake --build . --target test
 - cmake --build . --target package
+  cmake --build . --target docs
 deploy:
   provider: script
   skip_cleanup: true
   script:
   - curl -T otus_cpp-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -ueptitsyn:$BINTRAY_API_KEY "https://api.bintray.com/content/eptitsyn/otus_cpp/otus_cpp/v_main/otus_cpp-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: master
+  local_dir: ./docs/html
