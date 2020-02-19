@@ -3,6 +3,10 @@
 #include <functional>
 #include <utility>
 
+
+/**
+ * IsContainer 
+ */
 template<typename T, typename _ = void>
 struct is_container : std::false_type {};
 
@@ -30,13 +34,17 @@ struct is_container<
             >
         > : public std::true_type {};
 
-    //! Tests if T is a specialization of Template
+    /**
+     * Tests if T is a specialization of Template
+     */
     template <typename T, template <typename...> class Template>
     struct is_specialization_of : std::false_type {};
     template <template <typename...> class Template, typename... Args>
     struct is_specialization_of<Template<Args...>, Template> : std::true_type {};
 
-    //T is specialization of Template with same Args...
+    /**
+     * T is specialization of Template with same Args...
+     */
     template <typename T, template <typename...> class Template>
     struct is_specialization_ofsame : std::false_type {};
     template <template <typename...> class Template, typename A, typename... Args>

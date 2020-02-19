@@ -1,5 +1,8 @@
 #include "print_ip.h"
 
+/**
+ * Main print_ip function
+ */
 int main(){
     print_ip(int(1234));
     print_ip(char(-1));

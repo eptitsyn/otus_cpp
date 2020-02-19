@@ -1,4 +1,10 @@
 /**
+ * @file doxygen_c.h
+ * @author Evgenii Ptitsyn
+ * @brief File containing function for printing IP.
+ */
+
+/**
  * Print Ip function library
  */
 #pragma once
@@ -13,7 +19,10 @@
 #include <list>
 #include <tuple>
 
-//container
+/**
+ * PrintIp function
+ * @param Takes container
+ */
 template<typename T,
     typename std::enable_if<!is_same<typename std::remove_reference<T>::type, std::string>::value && 
     is_container<typename std::remove_reference<T>::type>::value>::type* = nullptr 
@@ -23,7 +32,10 @@ void print_ip(T&& value) {
     std::cout << std::endl;
 }
 
-//string
+/**
+ * PrintIp function
+ * @param Takes container
+ */
 template<typename T,
     typename std::enable_if<is_same<typename std::remove_reference<T>::type, std::string>::value>::type* = nullptr 
         >
@@ -31,7 +43,10 @@ void print_ip(T&& value) {
     std::cout << value << std::endl;
 };
 
-//integer type
+/**
+ * PrintIp function
+ * @param Takes integral types
+ */
 template<typename T,
     typename = 
         typename std::enable_if<std::is_integral<typename std::remove_reference<T>::type>::value>::type
@@ -44,7 +59,10 @@ void print_ip(T&& value) {
     std::cout << std::endl;
 };
 
-//tuple
+/**
+ * PrintIp function
+ * @param Takes tuple, but only of same type.
+ */
 template<typename T,
     typename std::enable_if<is_specialization_ofsame<typename std::remove_reference<T>::type, std::tuple>::value>::type* = nullptr 
         >
