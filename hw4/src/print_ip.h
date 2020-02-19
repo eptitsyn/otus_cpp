@@ -1,5 +1,5 @@
 /**
- * @file doxygen_c.h
+ * @file print_ip.h
  * @author Evgenii Ptitsyn
  * @brief File containing function for printing IP.
  */
@@ -44,8 +44,8 @@ void print_ip(T&& value) {
 }
 
 /**
- * PrintIp function
- * @param Takes integral types
+ * \brief PrintIp function
+ * @param takes integral types
  */
 template<typename T,
     typename = 
