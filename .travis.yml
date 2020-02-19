@@ -1,5 +1,13 @@
 dist: bionic
 language: cpp
+addons:
+  apt:
+    packages:
+      - doxygen
+      - doxygen-doc
+      - doxygen-latex
+      - doxygen-gui
+      - graphviz
 before_script:
 - sudo apt-get install libboost-test-dev doxygen -y
 - echo "deb http://archive.ubuntu.com/ubuntu bionic main universe" | sudo tee -a /etc/apt/sources.list
