@@ -102,7 +102,8 @@ public:
 
     //!remove shape from canvas
     void RemoveShape(int x, int y){
-        if(int i = pointInFigure(model->getDocument(), x, y) > -1 && i < model->getDocument()->size()){
+        int i = pointInFigure(model->getDocument(), x, y);
+        if(i != -1 && i < static_cast<int>(model->getDocument()->size())){
             model->RemoveObject(i); 
         }
         

@@ -37,7 +37,7 @@ public:
     Circle(int x, int y, int radius): IShape(x,y), radius(radius){};
     ~Circle(){};
     bool pointInside(int x_, int y_){
-        return false;
+        return (std::abs(x-x_) < radius && std::abs(y-y_) < radius);
     }
     void Draw(){std::cout << "Draw Circle at ("<< x <<","<< y << ") radius "<< radius << "\n"; };
 protected:
