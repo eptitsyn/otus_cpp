@@ -46,8 +46,8 @@ include(CPack)
 
 enable_testing()
 
-add_executable(gtest_hw4 tests/gtest_unittest.cpp)
-target_link_libraries(gtest_hw4 gtest_main)
-target_include_directories(gtest_hw4 PRIVATE ${PROJECT_SOURCE_DIR}/src)
-set_property(TARGET gtest_hw4 PROPERTY CXX_STANDARD 17)
+#add_executable(gtest_hw4 tests/gtest_unittest.cpp)
+#target_link_libraries(gtest_hw4 gtest_main)
+#target_include_directories(gtest_hw4 PRIVATE ${PROJECT_SOURCE_DIR}/src)
+#set_property(TARGET gtest_hw4 PROPERTY CXX_STANDARD 17)
 
