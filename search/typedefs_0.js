@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['char_5ftype',['char_type',['../classmyostream__joiner.html#a8a2f723b06048d745183cf5aa9043c85',1,'myostream_joiner']]]
+  ['document',['Document',['../main_8cpp.html#a879a701bedb1409725d790141f73651b',1,'main.cpp']]]
 ];

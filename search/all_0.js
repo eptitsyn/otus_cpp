@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['char_5ftype',['char_type',['../classmyostream__joiner.html#a8a2f723b06048d745183cf5aa9043c85',1,'myostream_joiner']]]
+  ['addobject',['AddObject',['../classModel.html#a0c528a9009c44a255dd47880b7827887',1,'Model']]],
+  ['addshape',['AddShape',['../classController.html#a906f0f299c116494932ff437a89c5b95',1,'Controller']]]
 ];

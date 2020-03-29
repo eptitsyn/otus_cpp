@@ -1,0 +1,6 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$classModel.html#a391abb00437283c4bc29261d90a8a1ff" title="Model::setController" alt="" coords="148,5,301,32"/>
+<area shape="rect" id="node3" href="$classController.html#aa53de93d431406f375b95c34e975d749" title="Create new document. " alt="" coords="108,56,341,83"/>
+<area shape="rect" id="node4" href="$classController.html#a906f0f299c116494932ff437a89c5b95" title="Add shape to canvas. " alt="" coords="145,107,304,133"/>
+<area shape="rect" id="node5" href="$classController.html#a4ebebb39e4d3d1490cfb5b988d147bf9" title="Controller::ExportDocument\lToFile" alt="" coords="123,158,326,199"/>
+</map>

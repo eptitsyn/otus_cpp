@@ -1,4 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structis__container_3_01T_00_01std_1_1conditional__t_3_01false_00_01is__container__helper_3_01ty98e374194158c5d4a93d6b9411b086ed.html" title="is_container\&lt; T, std\l::conditional_t\&lt; false,\l is_container_helper\&lt; typename\l T::value_type, typename T::\lsize_type, typename T::allocator\l_type, typename T::iterator, typename\l T::const_iterator, decltype(std::declval\l\&lt; T \&gt;().size()), decltype(std::declval\&lt;\l T \&gt;().begin()), decltype(std::declval\&lt; T\l \&gt;().end()), decltype(std::declval\&lt; T \&gt;().cbegin\l()), decltype(std::declval\&lt; T \&gt;().cend()) \&gt;, void \&gt; \&gt;" alt="" coords="5,29,365,203"/>
-<area shape="rect" id="node2" href="$structis__specialization__of_3_01Template_3_01Args_8_8_8_01_4_00_01Template_01_4.html" title="is_specialization_of\l\&lt; Template\&lt; Args... \&gt;\l, Template \&gt;" alt="" coords="413,88,581,144"/>
+<area shape="rect" id="node1" href="$classIShape.html" title="Интерфейс фигуры " alt="" coords="5,31,72,57"/>
+<area shape="rect" id="node2" href="$classCircle.html" title="Круг " alt="" coords="124,5,183,32"/>
+<area shape="rect" id="node3" href="$classSquare.html" title="Квадрат " alt="" coords="120,56,187,83"/>
 </map>
