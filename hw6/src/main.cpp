@@ -1,6 +1,7 @@
 #include "matrix.cpp"
 
 #include <iostream>
+#include <cassert>
 
 int main(){
     {
