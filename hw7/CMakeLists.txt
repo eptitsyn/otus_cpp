@@ -1,0 +1,53 @@
+cmake_minimum_required(VERSION 3.2)
+
+if ($ENV{TRAVIS_BUILD_NUMBER})
+    project(hw6 VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
+else ()
+    project(hw6 VERSION 0.0.1)
+endif()
+
+#add_subdirectory(docs)
+
+add_executable(matrix src/main.cpp)
+
+target_include_directories(matrix PRIVATE ${PROJECT_SOURCE_DIR}/src)
+
+set_target_properties(matrix PROPERTIES
+    CXX_STANDARD 17
+    CXX_STANDARD_REQUIRED ON
+    ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}"
+    LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}"
+    RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}"
+)
+
+if (MSVC)
+    target_compile_options(matrix PRIVATE
+        /W4
+    )
+else ()
+    target_compile_options(matrix PRIVATE
+        -Wall -Wextra -pedantic -Werror
+    )
+endif()
+
+
+
+install(TARGETS matrix RUNTIME DESTINATION bin)
+
+set(CPACK_GENERATOR DEB)
+
+set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
+set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
+set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
+
+set(CPACK_PACKAGE_CONTACT example@example.com)
+
+include(CPack)
+
+enable_testing()
+
+add_executable(gtest_hw6 tests/gtest_unittest.cpp)
+target_link_libraries(gtest_hw6 gtest_main)
+target_include_directories(gtest_hw6 PRIVATE ${PROJECT_SOURCE_DIR}/src)
+set_property(TARGET gtest_hw6 PROPERTY CXX_STANDARD 17)
+
