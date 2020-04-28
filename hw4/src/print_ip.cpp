@@ -1,4 +1,5 @@
 #include "print_ip.h"
+#include <array>
 
 /**
  * Main print_ip function
@@ -15,5 +16,7 @@ int main(){
     print_ip(std::tuple<int, int, int, int>{0, 1, 2, 3});
     print_ip(std::tuple<int>{42});
     //print_ip(std::tuple<int, char, int, int>{34, 'A', 43, 23});
+    // std::tuple<>{};
+    // print_ip(std::tuple<>{});
     return 0;
 }
