@@ -50,4 +50,4 @@ add_executable(gtest_hw7 tests/gtest_unittest.cpp)
 target_link_libraries(gtest_hw7 gtest_main)
 target_include_directories(gtest_hw7 PRIVATE ${PROJECT_SOURCE_DIR}/src)
 set_property(TARGET gtest_hw7 PROPERTY CXX_STANDARD 17)
-
+add_test(gtest_hw7 gtest_hw7)

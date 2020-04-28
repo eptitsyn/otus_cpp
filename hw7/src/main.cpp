@@ -1,3 +1,6 @@
+/*! @file interpreter.hpp
+ *  @brief Homework 7 main file
+ */
 #include "interpreter.hpp"
 
 #include <stdexcept>
@@ -19,8 +22,8 @@ int main(int argc, char* argv[]){
         std::cerr << "Number out of range: " << arg << '\n';
         }
 
-        Subject subj(bulklength);
-        ostreamObserver coutObserver(&subj);
+        Interpreter subj(bulklength);
+        ostreamObserver coutObserver(&subj, std::cout);
         fileObserver fileObs(&subj);
 
         std::string str;
