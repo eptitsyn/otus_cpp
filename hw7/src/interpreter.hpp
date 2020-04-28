@@ -1,12 +1,10 @@
 #pragma once
 
-#include "date.h"
+#include "date.h" // date.h by Howard Hinnant
 
 #include <iostream>
-#include <cassert>
 #include <string>
 #include <vector>
-#include <memory>
 #include <fstream>
 #include <sstream>
 
@@ -116,7 +114,7 @@ class Observer {
 };
 
 void Subject::notify() {
-  for (int i = 0; i < views.size(); i++)
+  for (size_t i = 0; i < views.size(); ++i)
     views[i]->update();
 }
 

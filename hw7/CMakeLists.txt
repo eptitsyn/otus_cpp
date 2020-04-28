@@ -1,18 +1,18 @@
 cmake_minimum_required(VERSION 3.2)
 
 if ($ENV{TRAVIS_BUILD_NUMBER})
-    project(hw6 VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
+    project(hw7 VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 else ()
-    project(hw6 VERSION 0.0.1)
+    project(hw7 VERSION 0.0.1)
 endif()
 
 #add_subdirectory(docs)
 
-add_executable(matrix src/main.cpp)
+add_executable(bulk src/main.cpp)
 
-target_include_directories(matrix PRIVATE ${PROJECT_SOURCE_DIR}/src)
+target_include_directories(bulk PRIVATE ${PROJECT_SOURCE_DIR}/src)
 
-set_target_properties(matrix PROPERTIES
+set_target_properties(bulk PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
     ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}"
@@ -21,18 +21,18 @@ set_target_properties(matrix PROPERTIES
 )
 
 if (MSVC)
-    target_compile_options(matrix PRIVATE
+    target_compile_options(bulk PRIVATE
         /W4
     )
 else ()
-    target_compile_options(matrix PRIVATE
+    target_compile_options(bulk PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
 endif()
 
 
 
-install(TARGETS matrix RUNTIME DESTINATION bin)
+install(TARGETS bulk RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 
@@ -46,8 +46,8 @@ include(CPack)
 
 enable_testing()
 
-add_executable(gtest_hw6 tests/gtest_unittest.cpp)
-target_link_libraries(gtest_hw6 gtest_main)
-target_include_directories(gtest_hw6 PRIVATE ${PROJECT_SOURCE_DIR}/src)
-set_property(TARGET gtest_hw6 PROPERTY CXX_STANDARD 17)
+add_executable(gtest_hw7 tests/gtest_unittest.cpp)
+target_link_libraries(gtest_hw7 gtest_main)
+target_include_directories(gtest_hw7 PRIVATE ${PROJECT_SOURCE_DIR}/src)
+set_property(TARGET gtest_hw7 PROPERTY CXX_STANDARD 17)
 
