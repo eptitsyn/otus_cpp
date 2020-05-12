@@ -1,3 +1,4 @@
+#pragma once
 #include "hash.hpp"
 
 #include <boost/filesystem.hpp>
@@ -16,21 +17,18 @@ struct hashblock
 class File
 {
     fs::path path;
-
     uintmax_t filesize;
-
     std::vector<hashblock> hash_data;
-    IHasher *hasher;
-
     uintmax_t blocksize;
+    IHasher *hasher;
     std::unique_ptr<std::ifstream> file_handle;
 
 public:
     bool in_result = false;
     const size_t blockcount;
     File(fs::path path, uintmax_t size, uintmax_t hash_blocksize, IHasher* hasher) //
-    : path(path), filesize(size), blocksize(hash_blocksize), 
-    blockcount((size + hash_blocksize - 1) / hash_blocksize), hasher(hasher)
+    : path(path), filesize(size), blocksize(hash_blocksize), hasher(hasher),
+    blockcount((size + hash_blocksize - 1) / hash_blocksize)
     {};
 
 /*! 

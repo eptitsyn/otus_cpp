@@ -1,4 +1,4 @@
-#include "dupsearcher.hpp"
+#include "bayan.hpp"
 
 #include "gtest/gtest.h"
 

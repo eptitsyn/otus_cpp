@@ -6,7 +6,8 @@ else ()
     project(hw9 VERSION 0.0.1)
 endif()
 
-FIND_PACKAGE( Boost 1.40 COMPONENTS program_options file_system regex REQUIRED)
+FIND_PACKAGE( Boost 1.40 COMPONENTS program_options filesystem regex REQUIRED)
+include_directories(${Boost_INCLUDE_DIRS})
 
 #add_subdirectory(docs)
 
