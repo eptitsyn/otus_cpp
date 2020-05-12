@@ -9,7 +9,7 @@ endif()
 FIND_PACKAGE( Boost 1.40 COMPONENTS program_options filesystem regex REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
 
-#add_subdirectory(docs)
+add_subdirectory(docs)
 
 add_executable(bayan src/main.cpp)
 
