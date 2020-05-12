@@ -4,9 +4,12 @@
 #include "bayan.hpp"
 
 #include <boost/program_options.hpp>
-#include <iostream>
 #include <exception>
+#include <iostream>
 
+/*! 
+ *  @brief fix for boost::program_option default value
+*/
 namespace std
 {
 std::ostream &operator<<(std::ostream &os, const std::vector<std::string> &vec)
@@ -48,11 +51,10 @@ int main(int argc, char *argv[])
                                 vm["exclude"].as<std::vector<std::string> >(),
                                 vm["filemasks"].as<std::vector<std::string> >(),
                                 vm["blocksize"].as<size_t>(),
-                                vm["depth"].as<size_t>(),
+                                vm["depth"].as<size_t>() + 1,
                                 vm["minsize"].as<uintmax_t>(),
                                 vm["hash"].as<std::string>()
             );
-            dup.RunSearch();
             auto dups = dup.FindDuplicates();
             for(const auto &i : dups){
                 std::cout << i.first << '\n';
@@ -63,12 +65,6 @@ int main(int argc, char *argv[])
             }
 
         }
-        //     std::cout << "Age: " << vm["age"].as<int>() << '\n';
-        // else if (vm.count("pi"))
-        //     std::cout << "Pi: " << vm["pi"].as<float>() << '\n';
-        // for(const auto& i: vm["include"].as<std::vector<std::string> >()){
-        //     std::cout << i << '\n';
-        // }
     }
     catch (const po::error &ex)
     {

@@ -1,12 +1,10 @@
 #include "hash.hpp"
 
 #include <boost/filesystem.hpp>
-#include <vector>
 #include <iostream>
+#include <vector>
 
 namespace fs = boost::filesystem;
-
-
 
 struct hashblock
 {
@@ -17,8 +15,8 @@ struct hashblock
 
 class File
 {
-    fs::path canonical_path;
-    //fs::path path;
+    fs::path path;
+
     uintmax_t filesize;
 
     std::vector<hashblock> hash_data;
@@ -30,8 +28,8 @@ class File
 public:
     bool in_result = false;
     const size_t blockcount;
-    File(fs::path canonical_path, uintmax_t size, uintmax_t hash_blocksize, IHasher* hasher) //
-    : canonical_path(canonical_path), filesize(size), blocksize(hash_blocksize), 
+    File(fs::path path, uintmax_t size, uintmax_t hash_blocksize, IHasher* hasher) //
+    : path(path), filesize(size), blocksize(hash_blocksize), 
     blockcount((size + hash_blocksize - 1) / hash_blocksize), hasher(hasher)
     {};
 
@@ -40,12 +38,12 @@ public:
 */
     bool operator==(const File &other) const
     {
-        return canonical_path == other.canonical_path;
+        return fs::equivalent(path, other.path);
     }
 
     size_t GetHashDataSize() const { return hash_data.size(); }
     uintmax_t GetFileSize() const { return filesize; }
-    fs::path GetPath() const { return canonical_path; }
+    fs::path GetPath() const { return path; }
 
 /*! 
 *  @brief Открыть файл и перейти в место последнего невычесленного блока
@@ -137,17 +135,17 @@ public:
     }
 };
 
-/*! 
- *  @brief hash opertor for unordered_map
-*/
-namespace std
-{
-template <>
-struct hash<File>
-{
-    size_t operator()(const File &obj) const
-    {
-        return hash<string>()(obj.GetPath().string());
-    }
-};
-} // namespace std
+// /*! 
+//  *  @brief hash opertor for unordered_map
+// */
+// namespace std
+// {
+// template <>
+// struct hash<File>
+// {
+//     size_t operator()(const File &obj) const
+//     {
+//         return hash<string>()(obj.GetPath().string());
+//     }
+// };
+// } // namespace std

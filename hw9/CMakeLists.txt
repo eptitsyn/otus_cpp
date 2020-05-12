@@ -1,16 +1,20 @@
 cmake_minimum_required(VERSION 3.2)
 
 if ($ENV{TRAVIS_BUILD_NUMBER})
-    project(hw7 VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
+    project(hw9 VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 else ()
-    project(hw7 VERSION 0.0.1)
+    project(hw9 VERSION 0.0.1)
 endif()
+
+FIND_PACKAGE( Boost 1.40 COMPONENTS program_options file_system regex REQUIRED)
 
 #add_subdirectory(docs)
 
 add_executable(bayan src/main.cpp)
 
-target_include_directories(bbayan PRIVATE ${PROJECT_SOURCE_DIR}/src)
+TARGET_LINK_LIBRARIES(bayan LINK_PUBLIC ${Boost_LIBRARIES} )
+
+target_include_directories(bayan PRIVATE ${PROJECT_SOURCE_DIR}/src)
 
 set_target_properties(bayan PROPERTIES
     CXX_STANDARD 17

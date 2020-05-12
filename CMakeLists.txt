@@ -9,6 +9,7 @@ project(otus_cpp)
 #add_subdirectory(hw5)
 #add_subdirectory(hw6)
 add_subdirectory(hw7)
+add_subdirectory(hw9)
 add_subdirectory(gtest)
 
 enable_testing()
