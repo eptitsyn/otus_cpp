@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['pointinfigure',['pointInFigure',['../main_8cpp.html#a5b6faa0fc02f6c9dc06869457ef2d583',1,'main.cpp']]],
-  ['pointinside',['pointInside',['../classIShape.html#af651318a1cd4294bc342cdc8844c0e45',1,'IShape::pointInside()'],['../classSquare.html#a92f5a38703cff8e87bb7abe4b910003b',1,'Square::pointInside()'],['../classCircle.html#ac66654b6a3ea4e561d8dcae683bc00e8',1,'Circle::pointInside()']]]
+  ['openhandle',['OpenHandle',['../classFile.html#a967ec3b2462bc542049df5799fd52fa1',1,'File']]],
+  ['operator_21_3d',['operator!=',['../structhashblock.html#a7f5c99edeadd9b347eb825074fd9d56f',1,'hashblock']]],
+  ['operator_3c_3c',['operator&lt;&lt;',['../namespacestd.html#af0508dbe61a29f93d114df64ce2cc162',1,'std']]],
+  ['operator_3d_3d',['operator==',['../structhashblock.html#a4880f4fb887aafa80d5d2a1dc5ce9917',1,'hashblock::operator==()'],['../classFile.html#a3f604de88cbf82ed853752fdb554ace1',1,'File::operator==()']]]
 ];

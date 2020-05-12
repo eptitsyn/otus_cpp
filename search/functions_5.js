@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['importdocumentfromfile',['ImportDocumentFromFile',['../classController.html#ab50cafe9a3f4a7df6252f7c8ac3cb4dd',1,'Controller']]],
-  ['ishape',['IShape',['../classIShape.html#a71c30932068aa8e068eae178c9fc015c',1,'IShape']]]
+  ['hash',['Hash',['../classIHasher.html#ae33512bcfacf5aa0084967d0847aebfa',1,'IHasher::Hash()'],['../classCRC32Hasher.html#ab98f3c75895f8c04f2ccdd50872def06',1,'CRC32Hasher::Hash()'],['../classMD5Hasher.html#afaf98065f5005ba8ab6d9add7eee26d0',1,'MD5Hasher::Hash()'],['../classSHA1Hasher.html#a24d4248463a510cea22aae97aaae466a',1,'SHA1Hasher::Hash()']]]
 ];

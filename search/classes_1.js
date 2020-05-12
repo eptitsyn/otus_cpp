@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ishape',['IShape',['../classIShape.html',1,'']]]
+  ['duplicatesearcher',['DuplicateSearcher',['../classDuplicateSearcher.html',1,'']]]
 ];

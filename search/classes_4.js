@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['view',['View',['../classView.html',1,'']]]
+  ['ihasher',['IHasher',['../classIHasher.html',1,'']]]
 ];

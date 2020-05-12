@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['square',['Square',['../classSquare.html',1,'']]]
+  ['hashblock',['hashblock',['../structhashblock.html',1,'']]]
 ];

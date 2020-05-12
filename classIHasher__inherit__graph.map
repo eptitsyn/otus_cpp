@@ -1,0 +1,5 @@
+<map id="IHasher" name="IHasher">
+<area shape="rect" id="node2" href="$classCRC32Hasher.html" title="CRC32Hasher" alt="" coords="5,80,116,107"/>
+<area shape="rect" id="node3" href="$classMD5Hasher.html" title="MD5Hasher" alt="" coords="140,80,237,107"/>
+<area shape="rect" id="node4" href="$classSHA1Hasher.html" title="SHA1Hasher" alt="" coords="261,80,364,107"/>
+</map>
