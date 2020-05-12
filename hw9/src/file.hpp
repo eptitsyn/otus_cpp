@@ -7,13 +7,19 @@
 
 namespace fs = boost::filesystem;
 
+/*! 
+*  @brief single hash node
+*/
 struct hashblock
 {
     unsigned int data;
-    bool operator==(const hashblock &other) const { return data == other.data; }
-    bool operator!=(const hashblock &other) const { return !(*this == other); }
+    bool operator==(const hashblock &other) const;
+    bool operator!=(const hashblock &other) const;
 };
 
+    /*! 
+*  @brief class for file with hash comparsion
+*/
 class File
 {
     fs::path path;
@@ -26,124 +32,44 @@ class File
 public:
     bool in_result = false;
     const size_t blockcount;
-    File(fs::path path, uintmax_t size, uintmax_t hash_blocksize, IHasher* hasher) //
-    : path(path), filesize(size), blocksize(hash_blocksize), hasher(hasher),
-    blockcount((size + hash_blocksize - 1) / hash_blocksize)
-    {};
+    File(fs::path path, uintmax_t size, uintmax_t hash_blocksize, IHasher *hasher) //
+        : path(path), filesize(size), blocksize(hash_blocksize), hasher(hasher),
+          blockcount((size + hash_blocksize - 1) / hash_blocksize){};
 
-/*! 
-*  @brief const comparsion for unordered set
+    /*! 
+*  @brief const comparsion for unordered_set
 */
-    bool operator==(const File &other) const
-    {
-        return fs::equivalent(path, other.path);
-    }
+    bool operator==(const File &other) const;
+    size_t GetHashDataSize() const;
+    uintmax_t GetFileSize() const;
+    fs::path GetPath() const;
 
-    size_t GetHashDataSize() const { return hash_data.size(); }
-    uintmax_t GetFileSize() const { return filesize; }
-    fs::path GetPath() const { return path; }
-
-/*! 
+    /*! 
 *  @brief Открыть файл и перейти в место последнего невычесленного блока
 */
-    void OpenHandle()
-    {
-        if (!file_handle)
-        {
-            file_handle = std::make_unique<std::ifstream>(GetPath().string());
-            file_handle.get()->seekg(hash_data.size() * blocksize);
-        }
-    }
-/*! 
+    void OpenHandle();
+    /*! 
 *  @brief закрыть файл
 */
-    void CloseHandle()
-    {
-        if (file_handle != nullptr)
-        {
-            file_handle->close();
-            delete file_handle.release();
-        }
-    }
-
-/*! 
+    void CloseHandle();
+    /*! 
 *  @brief Получить следующий блок из файла
 */
-    std::unique_ptr<char[]> GetNextBlock()
-    {
-        OpenHandle();
-        auto buffer = std::make_unique<char[]>(blocksize);
-        file_handle->read(buffer.get(), blocksize);
-        return buffer;
-    }
-
-/*! 
+    std::unique_ptr<char[]> GetNextBlock();
+    /*! 
 *  @brief Вычислить следующий блок хеша.
 */
-    void CalcNextHash()
-    {
-        hash_data.emplace_back(hashblock{hasher->Hash(GetNextBlock().get(), blocksize)});
-    }
-
+    void CalcNextHash();
     /*! 
 *  @brief Вычислить хеш до блока N включительно.
 */
-    hashblock CalcHashblock(size_t addr)
-    {
-        //std::cout << "hash " << addr << '\n';
-        while (hash_data.size() <= addr)
-        {
-            CalcNextHash();
-        }
-        return hash_data.back();
-    }
-
+    hashblock CalcHashblock(size_t addr);
     /*! 
 *  @brief get N-th hashblock
 */
-    hashblock GetHashblock(size_t addr)
-    {
-        if (addr >= blockcount)
-            throw;
-        if (addr < hash_data.size())
-            return hash_data[addr];
-        else
-            return CalcHashblock(addr);
-    }
-
+    hashblock GetHashblock(size_t addr);
     /*! 
 *  @brief Compare by hash with other File
 */
-    bool EqualByHashTo(File &other)
-    {
-        if (this->GetFileSize() != other.GetFileSize())
-            return false;
-        for (size_t i = 0; i < blockcount; ++i)
-        {
-            if (GetHashblock(i) != other.GetHashblock(i))
-            {
-                CloseHandle();
-                other.CloseHandle();
-                return false;
-            }
-        }
-        CloseHandle();
-        other.CloseHandle();
-        return true;
-    }
+    bool EqualByHashTo(File &other);
 };
-
-// /*! 
-//  *  @brief hash opertor for unordered_map
-// */
-// namespace std
-// {
-// template <>
-// struct hash<File>
-// {
-//     size_t operator()(const File &obj) const
-//     {
-//         return hash<string>()(obj.GetPath().string());
-//     }
-// };
-// } // namespace std

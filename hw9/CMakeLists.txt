@@ -11,7 +11,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 add_subdirectory(docs)
 
-add_executable(bayan src/main.cpp)
+add_executable(bayan src/main.cpp src/hash.cpp src/file.cpp src/bayan.cpp)
 
 TARGET_LINK_LIBRARIES(bayan LINK_PUBLIC ${Boost_LIBRARIES} )
 
