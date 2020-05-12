@@ -9,7 +9,8 @@ addons:
       - doxygen-gui
       - graphviz
 before_script:
-- sudo apt-get install libboost-test-dev doxygen -y
+- sudo add-apt-repository ppa:mhier/libboost-latest --yes
+- sudo apt-get install libboost1.70-dev doxygen -y
 - echo "deb http://archive.ubuntu.com/ubuntu bionic main universe" | sudo tee -a /etc/apt/sources.list
 - sudo apt-get update -qq
 script:
