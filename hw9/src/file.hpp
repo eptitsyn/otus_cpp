@@ -17,20 +17,30 @@ struct hashblock
     bool operator!=(const hashblock &other) const;
 };
 
-    /*! 
+/*! 
 *  @brief class for file with hash comparsion
 */
 class File
 {
     fs::path path;
     uintmax_t filesize;
+/*! 
+*  @brief storage for calculated hash
+*/
     std::vector<hashblock> hash_data;
     uintmax_t blocksize;
     IHasher *hasher;
     std::unique_ptr<std::ifstream> file_handle;
 
 public:
+/*! 
+*  @brief костыль, что бы при проверке результатов не вносить файл более 1 раза. 
+*   Возможно стоило бы сделать вектор с отложенным удалением из памяти.
+*/
     bool in_result = false;
+/*! 
+*  @brief сколько хеш блоков в этом файле
+*/
     const size_t blockcount;
     File(fs::path path, uintmax_t size, uintmax_t hash_blocksize, IHasher *hasher) //
         : path(path), filesize(size), blocksize(hash_blocksize), hasher(hasher),
