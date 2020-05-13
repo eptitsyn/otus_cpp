@@ -20,5 +20,6 @@ bayan. the file duplicate searcher.
 
 Example
 ```
-bayan --include test_data test_data2 --exclude ./test_data/excuede --depth 3 -- misize 100 --blocksize 1024 --filemasks ".*\.txt"
+./bayan --include test_data test_data2 --exclude test_data2/exclude --depth 3 --minsize 10 --blocksize 1024 --filemasks ".*\.txt"
+
 ```
