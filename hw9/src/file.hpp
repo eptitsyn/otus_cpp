@@ -12,7 +12,7 @@ namespace fs = boost::filesystem;
 */
 struct hashblock
 {
-    unsigned int data;
+    digest data;
     bool operator==(const hashblock &other) const;
     bool operator!=(const hashblock &other) const;
 };

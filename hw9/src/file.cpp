@@ -85,7 +85,6 @@ void File::CalcNextHash()
 */
 hashblock File::CalcHashblock(size_t addr)
 {
-    //std::cout << "hash " << addr << '\n';
     while (hash_data.size() <= addr)
     {
         CalcNextHash();
