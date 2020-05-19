@@ -88,7 +88,7 @@ void DuplicateSearcher::ScanPath(fs::path p, size_t depth)
             }
         }
     }
-};
+}
 
 DuplicateSearcher::DuplicateSearcher(std::vector<std::string> scan_dirs, std::vector<std::string> exclude_dirs, std::vector<std::string> filemasks_,
                                      size_t block_size, size_t scan_depth, uintmax_t min_file_size, std::string hasher)
@@ -101,7 +101,7 @@ DuplicateSearcher::DuplicateSearcher(std::vector<std::string> scan_dirs, std::ve
     {
         filemasks.emplace_back(boost::regex(i));
     }
-};
+}
 
 std::unordered_map<std::string, std::vector<std::string>> DuplicateSearcher::FindDuplicates()
 {
