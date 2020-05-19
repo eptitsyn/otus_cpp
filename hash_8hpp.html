@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">hw9
-   &#160;<span id="projectnumber">0.0.76</span>
+   &#160;<span id="projectnumber">0.0.85</span>
    </div>
   </td>
  </tr>
@@ -64,7 +64,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">hash.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -73,6 +74,7 @@ $(function() {
 <code>#include &lt;boost/uuid/detail/md5.hpp&gt;</code><br />
 <code>#include &lt;boost/uuid/detail/sha1.hpp&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for hash.hpp:</div>
 <div class="dyncontent">
@@ -85,10 +87,12 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="hash_8hpp__dep__incl.png" border="0" usemap="#_2home_2travis_2build_2eptitsyn_2otus__cpp_2hw9_2src_2hash_8hppdep" alt=""/></div>
 <map name="_2home_2travis_2build_2eptitsyn_2otus__cpp_2hw9_2src_2hash_8hppdep" id="_2home_2travis_2build_2eptitsyn_2otus__cpp_2hw9_2src_2hash_8hppdep">
-<area shape="rect" id="node2" href="file_8hpp.html" title="/home/travis/build\l/eptitsyn/otus_cpp/hw9\l/src/file.hpp" alt="" coords="104,109,276,165"/>
-<area shape="rect" id="node3" href="bayan_8hpp.html" title="/home/travis/build\l/eptitsyn/otus_cpp/hw9\l/src/bayan.hpp" alt="" coords="5,213,177,269"/>
-<area shape="rect" id="node5" href="file_8cpp.html" title="/home/travis/build\l/eptitsyn/otus_cpp/hw9\l/src/file.cpp" alt="" coords="215,213,387,269"/>
-<area shape="rect" id="node4" href="main_8cpp.html" title="/home/travis/build\l/eptitsyn/otus_cpp/hw9\l/src/main.cpp" alt="" coords="5,317,177,373"/>
+<area shape="rect" id="node2" href="file_8hpp.html" title="/home/travis/build\l/eptitsyn/otus_cpp/hw9\l/src/file.hpp" alt="" coords="227,109,399,165"/>
+<area shape="rect" id="node3" href="bayan_8hpp.html" title="/home/travis/build\l/eptitsyn/otus_cpp/hw9\l/src/bayan.hpp" alt="" coords="103,213,275,269"/>
+<area shape="rect" id="node7" href="hash_8cpp.html" title="/home/travis/build\l/eptitsyn/otus_cpp/hw9\l/src/hash.cpp" alt="" coords="423,109,595,165"/>
+<area shape="rect" id="node6" href="file_8cpp.html" title="/home/travis/build\l/eptitsyn/otus_cpp/hw9\l/src/file.cpp" alt="" coords="299,213,471,269"/>
+<area shape="rect" id="node4" href="bayan_8cpp.html" title="/home/travis/build\l/eptitsyn/otus_cpp/hw9\l/src/bayan.cpp" alt="" coords="5,317,177,373"/>
+<area shape="rect" id="node5" href="main_8cpp.html" title="/home/travis/build\l/eptitsyn/otus_cpp/hw9\l/src/main.cpp" alt="" coords="201,317,373,373"/>
 </map>
 </div>
 </div>
@@ -97,7 +101,6 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIHasher.html">IHasher</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Алгоритмы хеширования  <a href="classIHasher.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCRC32Hasher.html">CRC32Hasher</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -105,7 +108,30 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSHA1Hasher.html">SHA1Hasher</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ad06a644fdc4910a56edac463d2159c69"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hash_8hpp.html#ad06a644fdc4910a56edac463d2159c69">digest</a> = std::vector&lt; unsigned int &gt;</td></tr>
+<tr class="memdesc:ad06a644fdc4910a56edac463d2159c69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Алгоритмы хеширования  <a href="#ad06a644fdc4910a56edac463d2159c69">More...</a><br /></td></tr>
+<tr class="separator:ad06a644fdc4910a56edac463d2159c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ad06a644fdc4910a56edac463d2159c69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad06a644fdc4910a56edac463d2159c69">&#9670;&nbsp;</a></span>digest</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="hash_8hpp.html#ad06a644fdc4910a56edac463d2159c69">digest</a> =  std::vector&lt;unsigned int&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Алгоритмы хеширования </p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

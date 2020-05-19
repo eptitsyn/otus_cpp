@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">hw9
-   &#160;<span id="projectnumber">0.0.76</span>
+   &#160;<span id="projectnumber">0.0.85</span>
    </div>
   </td>
  </tr>
@@ -68,20 +68,26 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>class for file with hash comparsion  
+ <a href="classFile.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="file_8hpp_source.html">file.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4271fcd0f3190ef70382bdf3f4b36443"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFile.html#a4271fcd0f3190ef70382bdf3f4b36443">File</a> (fs::path path, uintmax_t size, uintmax_t <a class="el" href="hasher_8cpp.html#ad82d6369cd4a169f2952ccf598937c1d">hash_blocksize</a>, <a class="el" href="classIHasher.html">IHasher</a> *hasher)</td></tr>
+<tr class="memitem:a4271fcd0f3190ef70382bdf3f4b36443"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFile.html#a4271fcd0f3190ef70382bdf3f4b36443">File</a> (fs::path path, uintmax_t size, uintmax_t hash_blocksize, <a class="el" href="classIHasher.html">IHasher</a> *hasher)</td></tr>
 <tr class="separator:a4271fcd0f3190ef70382bdf3f4b36443"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f604de88cbf82ed853752fdb554ace1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFile.html#a3f604de88cbf82ed853752fdb554ace1">operator==</a> (const <a class="el" href="classFile.html">File</a> &amp;other) const</td></tr>
-<tr class="memdesc:a3f604de88cbf82ed853752fdb554ace1"><td class="mdescLeft">&#160;</td><td class="mdescRight">const comparsion for unordered set  <a href="#a3f604de88cbf82ed853752fdb554ace1">More...</a><br /></td></tr>
+<tr class="memdesc:a3f604de88cbf82ed853752fdb554ace1"><td class="mdescLeft">&#160;</td><td class="mdescRight">const comparsion for unordered_set  <a href="#a3f604de88cbf82ed853752fdb554ace1">More...</a><br /></td></tr>
 <tr class="separator:a3f604de88cbf82ed853752fdb554ace1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2f81a68742ace38331d1414e71fb9dc"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFile.html#af2f81a68742ace38331d1414e71fb9dc">GetHashDataSize</a> () const</td></tr>
+<tr class="memdesc:af2f81a68742ace38331d1414e71fb9dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for size of calculated hash  <a href="#af2f81a68742ace38331d1414e71fb9dc">More...</a><br /></td></tr>
 <tr class="separator:af2f81a68742ace38331d1414e71fb9dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66052ac4549f61c3c7b4ac54abc1f28f"><td class="memItemLeft" align="right" valign="top">uintmax_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFile.html#a66052ac4549f61c3c7b4ac54abc1f28f">GetFileSize</a> () const</td></tr>
+<tr class="memdesc:a66052ac4549f61c3c7b4ac54abc1f28f"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for filesize  <a href="#a66052ac4549f61c3c7b4ac54abc1f28f">More...</a><br /></td></tr>
 <tr class="separator:a66052ac4549f61c3c7b4ac54abc1f28f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab86c4a7244303f7cd96eb37eb9a53578"><td class="memItemLeft" align="right" valign="top">fs::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFile.html#ab86c4a7244303f7cd96eb37eb9a53578">GetPath</a> () const</td></tr>
+<tr class="memdesc:ab86c4a7244303f7cd96eb37eb9a53578"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for path  <a href="#ab86c4a7244303f7cd96eb37eb9a53578">More...</a><br /></td></tr>
 <tr class="separator:ab86c4a7244303f7cd96eb37eb9a53578"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a967ec3b2462bc542049df5799fd52fa1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFile.html#a967ec3b2462bc542049df5799fd52fa1">OpenHandle</a> ()</td></tr>
 <tr class="memdesc:a967ec3b2462bc542049df5799fd52fa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Открыть файл и перейти в место последнего невычесленного блока  <a href="#a967ec3b2462bc542049df5799fd52fa1">More...</a><br /></td></tr>
@@ -89,9 +95,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5b16a7f4426e7a80d21ca33fc46917f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFile.html#a5b16a7f4426e7a80d21ca33fc46917f8">CloseHandle</a> ()</td></tr>
 <tr class="memdesc:a5b16a7f4426e7a80d21ca33fc46917f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">закрыть файл  <a href="#a5b16a7f4426e7a80d21ca33fc46917f8">More...</a><br /></td></tr>
 <tr class="separator:a5b16a7f4426e7a80d21ca33fc46917f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a779ab94bbf29c0459006cdee5cf899df"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; char[]&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFile.html#a779ab94bbf29c0459006cdee5cf899df">GetNextBlock</a> ()</td></tr>
-<tr class="memdesc:a779ab94bbf29c0459006cdee5cf899df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить следующий блок из файла  <a href="#a779ab94bbf29c0459006cdee5cf899df">More...</a><br /></td></tr>
-<tr class="separator:a779ab94bbf29c0459006cdee5cf899df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95f4d65915058d8f6e00f7c3e923422f"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; char[]&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFile.html#a95f4d65915058d8f6e00f7c3e923422f">GetNextBlock</a> ()</td></tr>
+<tr class="memdesc:a95f4d65915058d8f6e00f7c3e923422f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить следующий блок из файла  <a href="#a95f4d65915058d8f6e00f7c3e923422f">More...</a><br /></td></tr>
+<tr class="separator:a95f4d65915058d8f6e00f7c3e923422f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a9d810566d6e68558f84c906055f267"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFile.html#a6a9d810566d6e68558f84c906055f267">CalcNextHash</a> ()</td></tr>
 <tr class="memdesc:a6a9d810566d6e68558f84c906055f267"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вычислить следующий блок хеша.  <a href="#a6a9d810566d6e68558f84c906055f267">More...</a><br /></td></tr>
 <tr class="separator:a6a9d810566d6e68558f84c906055f267"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -102,17 +108,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a71cd0885eb4092496ec22e1d260c8f6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">get N-th hashblock  <a href="#a71cd0885eb4092496ec22e1d260c8f6e">More...</a><br /></td></tr>
 <tr class="separator:a71cd0885eb4092496ec22e1d260c8f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd66ec8f2755bb41f7d089017ef35091"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFile.html#abd66ec8f2755bb41f7d089017ef35091">EqualByHashTo</a> (<a class="el" href="classFile.html">File</a> &amp;other)</td></tr>
-<tr class="memdesc:abd66ec8f2755bb41f7d089017ef35091"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare by hash with other <a class="el" href="classFile.html">File</a>.  <a href="#abd66ec8f2755bb41f7d089017ef35091">More...</a><br /></td></tr>
+<tr class="memdesc:abd66ec8f2755bb41f7d089017ef35091"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare by hash with other <a class="el" href="classFile.html" title="class for file with hash comparsion ">File</a>.  <a href="#abd66ec8f2755bb41f7d089017ef35091">More...</a><br /></td></tr>
 <tr class="separator:abd66ec8f2755bb41f7d089017ef35091"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a849052d0f74c4eddd709543cf8f15546"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFile.html#a849052d0f74c4eddd709543cf8f15546">in_result</a> = false</td></tr>
+<tr class="memdesc:a849052d0f74c4eddd709543cf8f15546"><td class="mdescLeft">&#160;</td><td class="mdescRight">костыль, что бы при проверке результатов не вносить файл более 1 раза. Возможно стоило бы сделать вектор с отложенным удалением из памяти.  <a href="#a849052d0f74c4eddd709543cf8f15546">More...</a><br /></td></tr>
 <tr class="separator:a849052d0f74c4eddd709543cf8f15546"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af08e4ebdb443b1e489af300fcac0adfc"><td class="memItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFile.html#af08e4ebdb443b1e489af300fcac0adfc">blockcount</a></td></tr>
+<tr class="memdesc:af08e4ebdb443b1e489af300fcac0adfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">сколько хеш блоков в этом файле  <a href="#af08e4ebdb443b1e489af300fcac0adfc">More...</a><br /></td></tr>
 <tr class="separator:af08e4ebdb443b1e489af300fcac0adfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>class for file with hash comparsion </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4271fcd0f3190ef70382bdf3f4b36443"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4271fcd0f3190ef70382bdf3f4b36443">&#9670;&nbsp;</a></span>File()</h2>
 
@@ -167,9 +177,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="structhashblock.html">hashblock</a> File::CalcHashblock </td>
@@ -179,11 +186,6 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Вычислить хеш до блока N включительно. </p>
@@ -195,9 +197,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void File::CalcNextHash </td>
@@ -206,11 +205,6 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Вычислить следующий блок хеша. </p>
@@ -222,9 +216,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void File::CloseHandle </td>
@@ -233,11 +224,6 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>закрыть файл </p>
@@ -249,9 +235,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool File::EqualByHashTo </td>
@@ -261,14 +244,9 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Compare by hash with other <a class="el" href="classFile.html">File</a>. </p>
+<p>Compare by hash with other <a class="el" href="classFile.html" title="class for file with hash comparsion ">File</a>. </p>
 
 </div>
 </div>
@@ -277,9 +255,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">uintmax_t File::GetFileSize </td>
@@ -288,12 +263,9 @@ Public Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>getter for filesize </p>
 
 </div>
 </div>
@@ -302,9 +274,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="structhashblock.html">hashblock</a> File::GetHashblock </td>
@@ -314,11 +283,6 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>get N-th hashblock </p>
@@ -330,9 +294,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">size_t File::GetHashDataSize </td>
@@ -341,36 +302,25 @@ Public Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>getter for size of calculated hash </p>
 
 </div>
 </div>
-<a id="a779ab94bbf29c0459006cdee5cf899df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a779ab94bbf29c0459006cdee5cf899df">&#9670;&nbsp;</a></span>GetNextBlock()</h2>
+<a id="a95f4d65915058d8f6e00f7c3e923422f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95f4d65915058d8f6e00f7c3e923422f">&#9670;&nbsp;</a></span>GetNextBlock()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;char[]&gt; File::GetNextBlock </td>
+          <td class="memname">std::unique_ptr&lt; char[]&gt; File::GetNextBlock </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Получить следующий блок из файла </p>
@@ -382,9 +332,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">fs::path File::GetPath </td>
@@ -393,12 +340,9 @@ Public Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>getter for path </p>
 
 </div>
 </div>
@@ -407,9 +351,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void File::OpenHandle </td>
@@ -418,11 +359,6 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Открыть файл и перейти в место последнего невычесленного блока </p>
@@ -434,9 +370,6 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool File::operator== </td>
@@ -446,14 +379,9 @@ Public Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>const comparsion for unordered set </p>
+<p>const comparsion for unordered_set </p>
 
 </div>
 </div>
@@ -470,6 +398,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>сколько хеш блоков в этом файле </p>
+
 </div>
 </div>
 <a id="a849052d0f74c4eddd709543cf8f15546"></a>
@@ -484,10 +414,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>костыль, что бы при проверке результатов не вносить файл более 1 раза. Возможно стоило бы сделать вектор с отложенным удалением из памяти. </p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/travis/build/eptitsyn/otus_cpp/hw9/src/<a class="el" href="file_8hpp_source.html">file.hpp</a></li>
+<li>/home/travis/build/eptitsyn/otus_cpp/hw9/src/<a class="el" href="file_8cpp.html">file.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

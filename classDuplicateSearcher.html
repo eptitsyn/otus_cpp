@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">hw9
-   &#160;<span id="projectnumber">0.0.76</span>
+   &#160;<span id="projectnumber">0.0.85</span>
    </div>
   </td>
  </tr>
@@ -76,14 +76,15 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae07bebb5603d39c4c4b563043747a655"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDuplicateSearcher.html#ae07bebb5603d39c4c4b563043747a655">DuplicateSearcher</a> (std::vector&lt; std::string &gt; scan_dirs, std::vector&lt; std::string &gt; exclude_dirs, std::vector&lt; std::string &gt; filemasks_, size_t block_size, size_t scan_depth, uintmax_t min_file_size, std::string hasher)</td></tr>
 <tr class="separator:ae07bebb5603d39c4c4b563043747a655"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bce908cfb339453768fc94af0fcf12a"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDuplicateSearcher.html#a8bce908cfb339453768fc94af0fcf12a">FindDuplicates</a> ()</td></tr>
-<tr class="separator:a8bce908cfb339453768fc94af0fcf12a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a740bddfc4af15acd2bc8dc4bc703fffb"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDuplicateSearcher.html#a740bddfc4af15acd2bc8dc4bc703fffb">FindDuplicates</a> ()</td></tr>
+<tr class="memdesc:a740bddfc4af15acd2bc8dc4bc703fffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">do search on files  <a href="#a740bddfc4af15acd2bc8dc4bc703fffb">More...</a><br /></td></tr>
+<tr class="separator:a740bddfc4af15acd2bc8dc4bc703fffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad82f4392cbe0eb24d8443af9c99a776f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDuplicateSearcher.html#ad82f4392cbe0eb24d8443af9c99a776f">SetScanDirs</a> (std::vector&lt; std::string &gt; dirs)</td></tr>
+<tr class="memdesc:ad82f4392cbe0eb24d8443af9c99a776f"><td class="mdescLeft">&#160;</td><td class="mdescRight">setter for directories for scanning  <a href="#ad82f4392cbe0eb24d8443af9c99a776f">More...</a><br /></td></tr>
 <tr class="separator:ad82f4392cbe0eb24d8443af9c99a776f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee473e28eb966fede7e9b297d3a0feae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDuplicateSearcher.html#aee473e28eb966fede7e9b297d3a0feae">SetExcludeDirs</a> (std::vector&lt; std::string &gt; dirs)</td></tr>
+<tr class="memdesc:aee473e28eb966fede7e9b297d3a0feae"><td class="mdescLeft">&#160;</td><td class="mdescRight">setter for exclusion directories  <a href="#aee473e28eb966fede7e9b297d3a0feae">More...</a><br /></td></tr>
 <tr class="separator:aee473e28eb966fede7e9b297d3a0feae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc761c5c9196e76d6e6b8bf830f724bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDuplicateSearcher.html#abc761c5c9196e76d6e6b8bf830f724bc">RunSearch</a> ()</td></tr>
-<tr class="separator:abc761c5c9196e76d6e6b8bf830f724bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classDuplicateSearcher.html" title="DuplicateSearcher class. ">DuplicateSearcher</a> class. </p>
@@ -93,9 +94,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">DuplicateSearcher::DuplicateSearcher </td>
@@ -145,63 +143,27 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8bce908cfb339453768fc94af0fcf12a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8bce908cfb339453768fc94af0fcf12a">&#9670;&nbsp;</a></span>FindDuplicates()</h2>
+<a id="a740bddfc4af15acd2bc8dc4bc703fffb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a740bddfc4af15acd2bc8dc4bc703fffb">&#9670;&nbsp;</a></span>FindDuplicates()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unordered_map&lt;std::string, std::vector&lt;std::string&gt; &gt; DuplicateSearcher::FindDuplicates </td>
+          <td class="memname">std::unordered_map&lt; std::string, std::vector&lt; std::string &gt; &gt; DuplicateSearcher::FindDuplicates </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="abc761c5c9196e76d6e6b8bf830f724bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc761c5c9196e76d6e6b8bf830f724bc">&#9670;&nbsp;</a></span>RunSearch()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DuplicateSearcher::RunSearch </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>do search on files </p>
 
 </div>
 </div>
@@ -210,9 +172,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void DuplicateSearcher::SetExcludeDirs </td>
@@ -222,12 +181,9 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>setter for exclusion directories </p>
 
 </div>
 </div>
@@ -236,9 +192,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void DuplicateSearcher::SetScanDirs </td>
@@ -248,17 +201,15 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>setter for directories for scanning </p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/travis/build/eptitsyn/otus_cpp/hw9/src/<a class="el" href="bayan_8hpp_source.html">bayan.hpp</a></li>
+<li>/home/travis/build/eptitsyn/otus_cpp/hw9/src/<a class="el" href="bayan_8cpp.html">bayan.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
