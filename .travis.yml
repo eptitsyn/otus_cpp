@@ -8,6 +8,13 @@ addons:
       - doxygen-latex
       - doxygen-gui
       - graphviz
+  coverity_scan:
+    project:
+      name: "eptitsyn/otus_cpp"
+      description: "otus_cpp coverity"
+    notification_email: eptitsyn@gmail.com
+    build_command: "./build_coverty.sh"
+    branch_pattern: master
 before_script:
 - sudo add-apt-repository ppa:mhier/libboost-latest --yes
 - sudo apt-get install libboost1.70-dev doxygen -y
