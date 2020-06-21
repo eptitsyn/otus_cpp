@@ -15,17 +15,20 @@ addons:
     notification_email: eptitsyn@gmail.com
     build_command: "./build_coverty.sh"
     branch_pattern: master
+
+before_install:
+  - chmod +x build.sh
+  - chmod +x build_coverty.sh
+  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
 before_script:
 - sudo add-apt-repository ppa:mhier/libboost-latest --yes
 - sudo apt-get install libboost1.70-dev doxygen -y
 - echo "deb http://archive.ubuntu.com/ubuntu bionic main universe" | sudo tee -a /etc/apt/sources.list
 - sudo apt-get update -qq
-script:
-- cmake .
-- cmake --build .
-- cmake --build . --target test
-- cmake --build . --target package
-- cmake --build . --target docs
+
+script: ./build.sh
+
 deploy:
    - provider: script
      skip_cleanup: true
