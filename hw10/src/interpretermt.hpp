@@ -181,7 +181,7 @@ public:
         stopflag_ = true;
         thread_.join();
     }
-    void update() {
+    void update() override{
         queue_.push(getSubject()->getCurrentBulkOut());
         cv_.notify_one();
     }
@@ -205,17 +205,17 @@ private:
 /*!
 * @brief Вывод в fstream
 */
-class fileObserver: public Observer{
-public:
-    fileObserver(Interpreter *model) : Observer(model) {
+// class fileObserver: public Observer{
+// public:
+//     fileObserver(Interpreter *model) : Observer(model) {
 
-    };
-    void update() {
-        std::ofstream out("bulk" + getSubject()->getBulkTime() + ".log");
-        out << getSubject()->getBulkAsString();
-        out.close();
-    }
-};
+//     };
+//     void update() {
+//         std::ofstream out("bulk" + getSubject()->getBulkTime() + ".log");
+//         out << getSubject()->getBulkAsString();
+//         out.close();
+//     }
+// };
 
 // void fileOutput(tbb::concurrent_queue<std::shared_ptr<Interpreter::BulkOut> > &queue, std::atomic<bool> &eof){
 //     while(!queue.empty() || !eof){

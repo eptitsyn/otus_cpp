@@ -11,6 +11,11 @@ include(${PROJECT_SOURCE_DIR}/../oneTBB/cmake/TBBGet.cmake)
 tbb_get(TBB_ROOT tbb_root CONFIG_DIR TBB_DIR)
 find_package(TBB REQUIRED tbb)
 
+#threads
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
+
 #add_subdirectory(docs)
 
 add_executable(bulkmt src/main.cpp)
@@ -18,7 +23,7 @@ add_executable(bulkmt src/main.cpp)
 include_directories(${PROJECT_SOURCE_DIR}/../../oneTBB/include/)
 target_include_directories(bulkmt PRIVATE ${PROJECT_SOURCE_DIR}/src )
 target_include_directories(bulkmt PUBLIC ${PROJECT_SOURCE_DIR}/../../oneTBB/include/)
-target_link_libraries(bulkmt ${TBB_IMPORTED_TARGETS})
+target_link_libraries(bulkmt ${TBB_IMPORTED_TARGETS} Threads::Threads)
 
 set_target_properties(bulkmt PROPERTIES
     CXX_STANDARD 17
@@ -37,8 +42,6 @@ else ()
         -Wall -Wextra -pedantic -Werror
     )
 endif()
-
-
 
 install(TARGETS bulkmt RUNTIME DESTINATION bin)
 
