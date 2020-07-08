@@ -7,7 +7,6 @@
 #include <string>
 #include <iostream>
 
-
 int main(int argc, char* argv[]){
     if(argc == 2){
         std::string arg = argv[1];
@@ -24,15 +23,19 @@ int main(int argc, char* argv[]){
         std::cerr << "Number out of range: " << arg << '\n';
         };
 
+        
         Interpreter subj(bulklength);
         ostreamObserver coutobserver(&subj, std::cout);
         fileObserver fileobserver(&subj, 2);
 
+        size_t string_counter = 0;
         std::string str;
         while(std::cin >> str)
         {
             subj.addString(str);
+            ++string_counter;
         }
+        logger.Logmain_addstrings(string_counter);
     } else {
         std::cout << "set bulk length as argument" << std::endl;
     }
