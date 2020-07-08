@@ -1,0 +1,33 @@
+{
+    "package": {
+        "name": "otus_cpp",
+        "repo": "otus_cpp",
+        "subject": "eptitsyn",
+        "website_url": "https://github.com/eptitsyn/otus_cpp",
+        "issue_tracker_url": "https://github.com/eptitsyn/otus_cpp/issues",
+        "vcs_url": "https://github.com/eptitsyn/otus_cpp.git",
+        "github_use_tag_release_notes": true,
+        "github_release_notes_file": "RELEASE.md",
+        "licenses": ["MIT"],
+        "labels": [],
+        "public_download_numbers": false,
+        "public_stats": false,
+        "attributes": []
+    },
+
+    "version": {
+      "name": "@CMAKE_PROJECT_VERSION@"
+    },
+      "files": [
+        {
+            "includePattern": "/home/travis/build/eptitsyn/otus_cpp/otus_cpp/build/otus_cpp-0.0.$ENV{TRAVIS_BUILD_NUMBER}-Linux.deb",
+            "uploadPattern": "bulk-0.1.$ENV{TRAVIS_BUILD_NUMBER}-Linux.deb",
+            "matrixParams": {
+                "deb_distribution": "$ENV{TRAVIS_DIST}",
+                "deb_component": "main",
+                "deb_architecture": "$ENV{TRAVIS_ARCH}"
+            }
+        }
+    ],
+    "publish": true
+}
