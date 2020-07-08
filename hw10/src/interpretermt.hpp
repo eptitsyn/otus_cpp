@@ -269,7 +269,7 @@ class fileObserver : public Observer
     std::mutex mutex_;
 
 public:
-    fileObserver(Interpreter *model, size_t thread_count = 1) : Observer(model)
+    fileObserver(Interpreter *model, size_t thread_count) : Observer(model)
     {
         for (size_t i = 0; i < thread_count; ++i)
         {
