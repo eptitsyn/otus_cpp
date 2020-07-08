@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classObserver.html" title="Наблюдатели для вывода " alt="" coords="5,31,87,57"/>
+<area shape="rect" id="node2" href="$classfileObserver.html" title="Вывод в fstream. " alt="" coords="151,5,253,32"/>
+<area shape="rect" id="node3" href="$classostreamObserver.html" title="Вывод в ostream. " alt="" coords="135,56,269,83"/>
+</map>

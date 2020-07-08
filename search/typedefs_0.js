@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['digest',['digest',['../hash_8hpp.html#ad06a644fdc4910a56edac463d2159c69',1,'hash.hpp']]]
+  ['days',['days',['../namespacedate.html#ad6eee1483b10d62a53de0f5015f819f5',1,'date']]]
 ];

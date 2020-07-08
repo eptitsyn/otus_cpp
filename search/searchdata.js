@@ -1,12 +1,14 @@
 var indexSectionsWithContent =
 {
-  0: "bcdefghimosv",
-  1: "cdfhims",
-  2: "s",
-  3: "bfhm",
-  4: "cdefghmosv",
-  5: "bdi",
-  6: "d"
+  0: "abcdefghijlmnoprstuvwy~",
+  1: "bcdfhilmnoprsuwy",
+  2: "d",
+  3: "dilm",
+  4: "acdefghilmnoprstuwy~",
+  5: "acdfhijlmnostvwy",
+  6: "dlmprstwy",
+  7: "dow",
+  8: "chno"
 };
 
 var indexSectionNames =
@@ -17,7 +19,9 @@ var indexSectionNames =
   3: "files",
   4: "functions",
   5: "variables",
-  6: "typedefs"
+  6: "typedefs",
+  7: "related",
+  8: "defines"
 };
 
 var indexSectionLabels =
@@ -28,6 +32,8 @@ var indexSectionLabels =
   3: "Files",
   4: "Functions",
   5: "Variables",
-  6: "Typedefs"
+  6: "Typedefs",
+  7: "Friends",
+  8: "Macros"
 };
 

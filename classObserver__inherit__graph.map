@@ -1,0 +1,4 @@
+<map id="Observer" name="Observer">
+<area shape="rect" id="node2" href="$classfileObserver.html" title="Вывод в fstream. " alt="" coords="5,80,107,107"/>
+<area shape="rect" id="node3" href="$classostreamObserver.html" title="Вывод в ostream. " alt="" coords="131,80,266,107"/>
+</map>
