@@ -285,7 +285,7 @@ public:
             i.join();
         }
     }
-    void update()
+    void update() override
     {
         queue_.push(getSubject()->getCurrentBulkOut());
         cv_.notify_one();
