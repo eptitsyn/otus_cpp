@@ -24,12 +24,9 @@ int main(int argc, char* argv[]){
         std::cerr << "Number out of range: " << arg << '\n';
         };
 
-        tbb::concurrent_queue<std::string> q1;
-        //std::atomic<bool> eof{false};
-
         Interpreter subj(bulklength);
         ostreamObserver coutobserver(&subj, std::cout);
-
+        fileObserver fileobserver(&subj, 2);
 
         std::string str;
         while(std::cin >> str)

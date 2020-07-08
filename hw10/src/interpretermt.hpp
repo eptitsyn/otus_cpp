@@ -6,17 +6,17 @@
 #include "date.h" // date.h by Howard Hinnant
 #include "tbb/concurrent_queue.h"
 
+#include <atomic>
+#include <condition_variable>
 #include <fstream>
+#include <iomanip>
 #include <iostream>
+#include <memory>
+#include <mutex>
 #include <sstream>
 #include <string>
-#include <vector>
-#include <atomic>
 #include <thread>
-#include <memory>
-#include <condition_variable>
-#include <mutex>
-
+#include <vector>
 
 
 /*!
@@ -42,7 +42,7 @@ private:
 
 public:
     Interpreter(size_t size = 3) : BulkSize(size){};
-    ~Interpreter(){ 
+    virtual ~Interpreter(){ 
         if(!current_bulk->is_packet)
             flush();
     }
@@ -57,8 +57,7 @@ public:
 * @brief Сделать вывод текущего балка
 */
     void flush(){
-        BulkOut* ptr = new BulkOut{getBulkAsString(), getBulkTime()};
-        currentBulkOut = std::make_shared<BulkOut>(*ptr);
+        currentBulkOut = std::make_shared<BulkOut>( BulkOut{getBulkAsString(), getBulkTime()} );
         if(current_bulk->commands.size() != 0) {
             notify();
         }
@@ -177,8 +176,9 @@ public:
     ostreamObserver(Interpreter *model, std::ostream& stream) : Observer(model), stream(stream) {
         thread_ = std::thread(&ostreamObserver::Run, this);
     };
-    ~ostreamObserver(){
+    virtual ~ostreamObserver(){
         stopflag_ = true;
+        cv_.notify_all();
         thread_.join();
     }
     void update() override{
@@ -192,10 +192,10 @@ private:
             cv_.wait(l);
             while(!queue_.empty()){
                 std::shared_ptr<Interpreter::BulkOut> obj;
-                queue_.try_pop(obj);
-                //read
-                stream << obj.get()->commands;
-                stream << std::endl;
+                if(queue_.try_pop(obj)){
+                    stream << obj.get()->commands;
+                    stream << std::endl;
+                }
             }
         }
     }
@@ -205,21 +205,45 @@ private:
 /*!
 * @brief Вывод в fstream
 */
-// class fileObserver: public Observer{
-// public:
-//     fileObserver(Interpreter *model) : Observer(model) {
-
-//     };
-//     void update() {
-//         std::ofstream out("bulk" + getSubject()->getBulkTime() + ".log");
-//         out << getSubject()->getBulkAsString();
-//         out.close();
-//     }
-// };
-
-// void fileOutput(tbb::concurrent_queue<std::shared_ptr<Interpreter::BulkOut> > &queue, std::atomic<bool> &eof){
-//     while(!queue.empty() || !eof){
-//         std::shared_ptr<Interpreter::BulkOut> element;
-//         queue.try_pop(element);
-//     }
-// }
+class fileObserver: public Observer{
+    std::vector<std::thread> threads_;
+    tbb::concurrent_queue<std::shared_ptr<Interpreter::BulkOut> > queue_;
+    std::atomic<bool> stopflag_{false};
+    std::condition_variable cv_;
+    std::mutex mutex_;
+public:
+    fileObserver(Interpreter *model, size_t thread_count = 1) : Observer(model) {
+        for(size_t i = 0; i < thread_count; ++i){
+            threads_.emplace_back(std::thread(&fileObserver::Run, this));
+        }
+    };
+    virtual ~fileObserver(){
+        stopflag_ = true;
+        cv_.notify_all();
+        for(auto &i: threads_){
+            i.join();
+        }
+    }
+    void update() {
+        queue_.push(getSubject()->getCurrentBulkOut());
+        cv_.notify_one();
+    }
+private:
+    void Run(){
+        while(!stopflag_ || !queue_.empty()){
+            std::unique_lock<decltype(mutex_)> l(mutex_);
+            cv_.wait(l);
+            while(!queue_.empty()){
+                std::shared_ptr<Interpreter::BulkOut> obj;
+                if(queue_.try_pop(obj)){
+                    std::stringstream ss;
+                    ss << "bulk" << obj.get()->time_str << "_" << std::hex << std::setw(4)
+                    << std::hash<std::string>{}(obj.get()->commands) << ".log";
+                    std::ofstream out(ss.str());
+                    out << obj.get()->commands;
+                    out.close();
+                }
+            }
+        }
+    }
+};
