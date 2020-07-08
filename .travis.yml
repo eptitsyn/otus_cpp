@@ -15,7 +15,7 @@ addons:
     notification_email: eptitsyn@gmail.com
     build_command: "./build_coverty.sh"
     branch_pattern: master
-
+    edge: true
 before_install:
   - chmod +x build.sh
   - chmod +x build_coverty.sh
