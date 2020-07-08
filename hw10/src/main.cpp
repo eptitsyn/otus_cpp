@@ -2,11 +2,12 @@
  *  @brief Homework 7 main file
  */
 #include "interpretermt.hpp"
-#include "../oneTBB/include/tbb/concurrent_queue.h"
 
 #include <stdexcept>
 #include <string>
 #include <iostream>
+#include <thread>
+
 
 int main(int argc, char* argv[]){
     if(argc == 2){
@@ -22,11 +23,14 @@ int main(int argc, char* argv[]){
         std::cerr << "Invalid number: " << arg << '\n';
         } catch (std::out_of_range const &ex) {
         std::cerr << "Number out of range: " << arg << '\n';
-        }
+        };
+
+        tbb::concurrent_queue<std::string> q1;
+        //std::atomic<bool> eof{false};
 
         Interpreter subj(bulklength);
-        ostreamObserver coutObserver(&subj, std::cout);
-        fileObserver fileObs(&subj);
+        ostreamObserver coutobserver(&subj, std::cout);
+
 
         std::string str;
         while(std::cin >> str)
