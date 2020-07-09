@@ -22,7 +22,7 @@ add_executable(bulkmt src/main.cpp)
 
 include_directories(${PROJECT_SOURCE_DIR}/../../oneTBB/include/)
 target_include_directories(bulkmt PRIVATE ${PROJECT_SOURCE_DIR}/src )
-target_include_directories(bulkmt PUBLIC ${PROJECT_SOURCE_DIR}/../../oneTBB/include/)
+#target_include_directories(bulkmt PUBLIC ${PROJECT_SOURCE_DIR}/../../oneTBB/include/)
 target_link_libraries(bulkmt ${TBB_IMPORTED_TARGETS} Threads::Threads)
 
 set_target_properties(bulkmt PROPERTIES
@@ -55,10 +55,10 @@ set(CPACK_PACKAGE_CONTACT example@example.com)
 
 include(CPack)
 
-enable_testing()
+#enable_testing()
 
-#add_executable(gtest_hw7 tests/gtest_unittest.cpp)
-#target_link_libraries(gtest_hw7 gtest_main)
-#target_include_directories(gtest_hw7 PRIVATE ${PROJECT_SOURCE_DIR}/src)
-#set_property(TARGET gtest_hw7 PROPERTY CXX_STANDARD 17)
-#add_test(gtest_hw7 gtest_hw7)
+#add_executable(gtest_hw10 tests/gtest_unittest.cpp)
+#target_link_libraries(gtest_hw10 gtest_main ${TBB_IMPORTED_TARGETS} Threads::Threads)
+#target_include_directories(gtest_hw10 PRIVATE ${PROJECT_SOURCE_DIR}/src)
+#set_property(TARGET gtest_hw10 PROPERTY CXX_STANDARD 17)
+#add_test(gtest_hw10 gtest_hw10)
